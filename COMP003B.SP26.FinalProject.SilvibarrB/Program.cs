@@ -6,6 +6,14 @@
 //Service - Id, Name, Description, Price,4 ApptDuration
 //Id, Appointment Date, Notes, PetId (fk), GroomerId (fk), ServiceId (fk)
 
+//Author: Brandon Silvibarr
+//Course: COMP003B ASP.NET Core
+//Instructor: Jonathan Cruz
+//Purpose: Demonstrate the comprehension and application of MVC, Web API, EF Core, and Middleware
+
+using COMP003B.SP26.FinalProject.SilvibarrB.Data;
+using COMP003B.SP26.FinalProject.SilvibarrB.Middleware;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace COMP003B.SP26.FinalProject.SilvibarrB;
@@ -18,6 +26,12 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        builder.Services.AddControllers();
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
+        builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+        
 
         var app = builder.Build();
 
@@ -30,16 +44,17 @@ public class Program
         }
 
         app.UseHttpsRedirection();
+        app.UseStaticFiles();
+        app.UseMiddleware <RequestTimingMiddleware>();
         app.UseRouting();
-
         app.UseAuthorization();
-
-        app.MapStaticAssets();
+        app.UseSwagger();
+        app.UseSwaggerUI();
         app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
-            .WithStaticAssets();
-
+                pattern: "{controller=Home}/{action=Index}/{id?}"
+                
+                app.MapControllers();
         app.Run();
     }
 }
