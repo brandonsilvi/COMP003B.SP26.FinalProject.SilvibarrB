@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace COMP003B.SP26.FinalProject.SilvibarrB.Models
 {
 
-    public class Services
+    public class Service
     {
         public int Id { get; set; }
         

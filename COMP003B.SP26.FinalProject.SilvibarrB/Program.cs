@@ -45,14 +45,14 @@ public class Program
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();
-        app.UseMiddleware <RequestTimingMiddleware>();
+        app.UseMiddleware<RequestTimingMiddleware>();
         app.UseRouting();
         app.UseAuthorization();
         app.UseSwagger();
         app.UseSwaggerUI();
         app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}"
+            name: "default",
+            pattern: "{controller=Home}/{action=Index}/{id?}");
                 
                 app.MapControllers();
         app.Run();
