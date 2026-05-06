@@ -1,8 +1,26 @@
+@using SQLitePCL
 @model COMP003B.SP26.FinalProject.SilvibarrB.Models.Owner
 
 @{
-    ViewBag.Title = "title";
+    ViewData["Title"] = "Delete Owner";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<h2>Delete Owner</h2>
+<p>Please verify before you delete this owner.</p>
+
+<dl class="row">
+    <dt class="col-sm-2">First Name</dt>
+    <dd class="col-sm-10">@model.FirstName</dd>
+    <dt class="col-sm-2">Last Name</dt>
+    <dd class="col-sm-10">@model.LastName</dd>
+    <dt class="col-sm-2">Email</dt>
+    <dd class="col-sm-10">@model.Email</dd>
+    <dt class="col-sm-2">Phone</dt>
+    <dd class="col-sm-10">@model.Phone</dd>
+</dl>
+<form asp-action="Delete">
+    <input type="hidden" asp-for="Id"/>
+    <button type="submit" class="btn btn-primary">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

@@ -1,8 +1,32 @@
-@model Owner
+@using SQLitePCL
+@model COMP003B.SP26.FinalProject.SilvibarrB.Models.Owner
 
 @{
-    ViewBag.Title = "title";
+    ViewData["Title"] = "Owner Details";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<h2>Owner Details</h2>
+
+
+<dl class="row">
+    <dt class="col-sm-2">First Name</dt>
+    <dd class="col-sm-10">@model.FirstName</dd>
+    <dt class="col-sm-2">Last Name</dt>
+    <dd class="col-sm-10">@model.LastName</dd>
+    <dt class="col-sm-2">Email</dt>
+    <dd class="col-sm-10">@model.Email</dd>
+    <dt class="col-sm-2">Phone</dt>
+    <dd class="col-sm-10">@model.Phone</dd>
+</dl>
+@if (Model.Pets != null && Model.Pets.Any())
+{
+    <h3>Pets</h3>
+    <ul>
+        @foreach (var pet in Model.Pets)
+        {
+            <li>@pet.Name — @pet.Species (@pet.Breed)</li>
+        }
+    </ul>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</button>
+    <a asp-action="Index" class="btn btn-secondary">Back To List</a>
