@@ -9,17 +9,17 @@ namespace COMP003B.SP26.FinalProject.SilvibarrB.Models
         
         [Required]
         [StringLength(50)]
-        public string FirstName { get; set; }
+        public required string FirstName { get; set; }
         
         [Required]
         [StringLength(50)]
-        public string LastName { get; set; }
+        public required string LastName { get; set; }
 
         [Required]
-        public string Specialty { get; set; }
+        public required string Specialty { get; set; }
         
         [Required]
-        public DateTime HireDate { get; set; }
+        public required DateTime HireDate { get; set; }
         
         public ICollection<Appointment>? Appointments { get; set; }
 

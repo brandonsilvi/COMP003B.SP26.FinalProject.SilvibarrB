@@ -10,7 +10,7 @@ namespace COMP003B.SP26.FinalProject.SilvibarrB.Models
         [Required]
         public DateTime AppointmentDate { get; set; }
         
-        public string? Notes { get; set; }
+        public required string? Notes { get; set; }
         
         public int PetId { get; set; }
         public Pet? Pet { get; set; }

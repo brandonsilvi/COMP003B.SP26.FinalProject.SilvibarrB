@@ -9,12 +9,12 @@ namespace COMP003B.SP26.FinalProject.SilvibarrB.Models
         
         [Required]
         [StringLength(50)]
-        public string Name { get; set; }
+        public required string Name { get; set; }
         
         [Required]
-        public string Species { get; set; }
+        public required string Species { get; set; }
         
-        public string? Breed { get; set; }
+        public required string? Breed { get; set; }
         
         [Range(0, 30)]
         public int Age { get; set; }
