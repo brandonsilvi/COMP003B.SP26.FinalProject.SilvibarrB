@@ -19,7 +19,7 @@ namespace COMP003B.SP26.FinalProject.SilvibarrB.Controllers
         {
             return View(await _context.Owners.ToListAsync());
         }
-
+//DETAILS
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null) return NotFound();
@@ -34,7 +34,7 @@ namespace COMP003B.SP26.FinalProject.SilvibarrB.Controllers
         {
             return View();
         }
-
+//CREATE
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Email,Phone")] Owner owner)
@@ -48,7 +48,7 @@ namespace COMP003B.SP26.FinalProject.SilvibarrB.Controllers
 
             return View(owner);
         }
-
+//EDIT
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -56,7 +56,7 @@ namespace COMP003B.SP26.FinalProject.SilvibarrB.Controllers
             if (owner == null) return NotFound();
             return View(owner);
         }
-
+//EDIT
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Email,Phone")] Owner owner)
@@ -80,15 +80,15 @@ namespace COMP003B.SP26.FinalProject.SilvibarrB.Controllers
 
             return View(owner);
         }
-
+//DELETE
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
             var owner = await _context.Owners.FirstOrDefaultAsync(m => m.Id == id);
             if (owner == null) return NotFound();
             return View(owner);
-        }
-
+        } 
+//DELETE        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
