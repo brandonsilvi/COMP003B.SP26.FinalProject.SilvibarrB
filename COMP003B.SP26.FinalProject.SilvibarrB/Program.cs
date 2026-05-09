@@ -3,7 +3,7 @@
 //Owner - Id, FName, LName, Email, Phone
 //Pet - Id, Name, Species, Breed, Age, OwnerId (fk)
 //Groomer - Id, FName, LName, Specialty, HireDate
-//Service - Id, Name, Description, Price,4 ApptDuration
+//Service - Id, Name, Description, Price, ApptDuration
 //Id, Appointment Date, Notes, PetId (fk), GroomerId (fk), ServiceId (fk)
 
 //Author: Brandon Silvibarr
