@@ -21,4 +21,10 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+    [Route("Home/Test/{message?}")]
+    public IActionResult Test(string? message)
+    {
+        return Content($"Message: {message}");
+    }
 }
