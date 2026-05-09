@@ -23,7 +23,7 @@ namespace COMP003B.SP26.FinalProject.SilvibarrB.Controllers
             return Ok(await _context.Services.ToListAsync());
         }
         //GET API SERVICES+
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetService(int id)
         {
             var service = await _context.Services.FindAsync(id);
@@ -43,7 +43,7 @@ namespace COMP003B.SP26.FinalProject.SilvibarrB.Controllers
             return Ok(service);
         }
         //PUT API SERVICES+
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateService(int id, Service service)
         {
             if (id != service.Id)
@@ -56,7 +56,7 @@ namespace COMP003B.SP26.FinalProject.SilvibarrB.Controllers
             return Ok(service);
         }
         //DELETE API SERVICES+
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteService(int id)
         {
             var service = await _context.Services.FindAsync(id);
